@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="billboard" class="no-js">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>billboard</title>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base href="/">
+
+    <!-- build:css(client) styles/global.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css" />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- build:js(client) app/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <section class="hero"></section>
+    <section class="page">
+      <div class="container">
+        <nav class="nav">
+          <ul ng-if="user.authenticated" class="nav-left">
+            <li class="nav__item">
+              <a ui-sref="home" ui-sref-active="nav__item-link_active" class="nav__item-link">Posts</a>
+            </li>
+            <li class="nav__item">
+              <a ui-sref="addpost" ui-sref-active="nav__item-link_active" class="nav__item-link">Add post</a>
+            </li>
+          </ul>
+          <ul ng-if="user.authenticated" class="nav-right">
+            <li class="nav__item">
+              <a ui-sref="friends" ui-sref-active="nav__item-link_active" class="nav__item-link">Add friends</a>
+            </li>
+            <li class="nav__item">
+              <a ua-logout href="#" class="nav__item-link">Log out</a>
+            </li>
+          </ul>
+          <a ui-sref="home" class="logo">
+            <img class="logo__img" src="img/logo.jpg" alt="">
+          </a>
+        </nav>
+        <h2 ng-if="user.authenticated" class="greeting">
+          Hello, <a class="greeting__link" ng-bind="user.first_name" ui-sref="user({userId: user.user_id})"></a>
+        </h2>
+        <ui-view></ui-view>
+      </div>
+      <footer class="footer">
+        <p class="copyright">Copyrights (c) <a ui-sref="home" class="copyright-link">Billboard</a> 2015</p>
+      </footer>
+    </section>
+
+    <!-- build:js(client) app/global.js -->
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <script src="/bower_components/angular/angular.js"></script>
+      <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+      <script src="/bower_components/userapp/userapp.client.js"></script>
+      <script src="/bower_components/userapp-angular/angularjs.userapp.js"></script>
+      <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js(client) app/main.js -->
+      <script src="app/main.js"></script>
+    <!-- [injector:js] -->
+      <script src="app/factory/api.factory.js"></script>
+      <script src="app/controller/home/home.controller.js"></script>
+      <script src="app/controller/home/home.js"></script>
+      <script src="app/controller/friends/friends.controller.js"></script>
+      <script src="app/controller/friends/friends.js"></script>
+      <script src="app/controller/login/login.controller.js"></script>
+      <script src="app/controller/login/login.js"></script>
+      <script src="app/controller/signup/signup.controller.js"></script>
+      <script src="app/controller/signup/signup.js"></script>
+      <script src="app/controller/addPost/addPost.controller.js"></script>
+      <script src="app/controller/addPost/addPost.js"></script>
+      <script src="app/controller/editPost/editPost.controller.js"></script>
+      <script src="app/controller/editPost/editPost.js"></script>
+      <script src="app/controller/post/post.controller.js"></script>
+      <script src="app/controller/post/post.js"></script>
+      <script src="app/controller/user/user.controller.js"></script>
+      <script src="app/controller/user/user.js"></script>
+    <!-- [endinjector] -->
+    <!-- endbuild -->
+
+  </body>
+</html>

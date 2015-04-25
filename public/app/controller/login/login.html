@@ -1,0 +1,27 @@
+<form ua-login class="form form_login">
+    <div class="form__title form__title_center">
+        Sign in to continue
+    </div>
+    <div class="form__row">
+      <img class="form__img"
+          src="img/profile.png" alt="">
+    </div>
+    <div class="form__row">
+        <input class="form__input" placeholder="Username" name="login" type="text" autofocus>
+    </div>
+    <div class="form__row">
+        <input class="form__input" placeholder="Password" name="password" type="password" value="">
+    </div>
+    <div class="form__row">
+        <input type="submit" class="btn btn_block" value="Sign in">
+    </div>
+    <div class="form__footer">
+      <p class="form__error" ng-show="error">{{ error.message }}</p>
+      <div class="form__info">
+        Don't have an account? <a class="form__link" ui-sref="signup"> Sign Up Here </a>
+      </div>
+    </div>
+    <div ng-show="loading" class="loading-bar">
+      <img  class="loading-bar__img" src="img/ajax-loader.gif">
+    </div>
+</form>
